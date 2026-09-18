@@ -2,6 +2,10 @@
     font-size: 16px;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     margin: 0;
     background-color: #F2F2F2;
@@ -13,7 +17,6 @@ a{
 
 h1{
     font-size: 1.6rem;
-    text-align: center;
 }
 
 ul{
@@ -28,13 +31,15 @@ li{
 
 /* Header */
 header{
+    display: flex;
     width: 100%;
     height: 280px;
+
+    flex-direction: column;
 }
 
 .logomark_container{
     display: flex;
-    width: 100%;
     height: 70px;
 
     align-items: center;
@@ -69,6 +74,7 @@ nav > ul > li{
     margin: 0 auto;
     padding-left: 20px;
     align-items: center;
+    white-space: nowrap;
     border-bottom: 1px solid #4E7E51;
     background-color: #F2F2F2;
 }
@@ -83,6 +89,7 @@ section{
     width: 100%;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 section > img{
     width: 100%;
@@ -91,23 +98,24 @@ section > p{
     text-align: center;
     margin: 20px 20px;
 }
-section > button{
-    margin: 0 auto;
-    margin-bottom: 20px;
-}
 
 button{
     width: 230px;
     height: 40px;
     
     font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 20px;
     border: none;
     border-radius: 10px;
     background-color: #58935C;
     box-shadow: #000000 3px 3px 5px ;
 }
-button:active{
+button:hover{
     background-color: #4E7E51;
+}
+button:active{
+    background-color: #355638;
     box-shadow:none;
 }
 
@@ -179,10 +187,16 @@ footer{
 .footer_logo_container > a > img {
     width: 75px;
 
-    margin: 20px 0px;
+    margin-top: 20px;
 }
-.footer_logo_container > h2{margin: 0;}
-.footer_logo_container > p{margin: 0;}
+.footer_logo_container > div{
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+.footer_logo_container > div > h2{margin-bottom: 0;}
+.footer_logo_container > div > p{margin: 0;}
 
 .contact {
     margin-left: 50px;
@@ -190,3 +204,144 @@ footer{
 }
 
 .links {grid-area: link;}
+
+
+
+/* Desktop */
+@media (min-width: 800px){
+:root{
+    font-size: 22px;
+}
+
+/* Header */
+header{
+    display: flex;
+    height: 100px;
+
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+    background-color: #4E7E51;
+}
+
+.logomark_container{ margin-left: 10%;}
+.logomark_container > a > img{
+    width: 75px;
+    height: 75px;
+
+    margin: 0px 20px 0px 0px;
+}
+
+nav{margin-right: 10%;}
+nav > ul{
+    align-items: center;
+    flex-direction: row;
+    background-color: transparent;
+}
+
+nav > ul > li{
+    background-color: transparent;
+}
+
+
+/* Main */
+button{
+    width: 300px;
+    height: 45px;
+
+    box-shadow: #355638 inset -3px -3px 0px ;
+}
+
+#hero{
+    height: 800px;
+
+    box-sizing: border-box;
+    padding-left: 10%;
+    align-items: start;
+    justify-content: center;
+    border: none;
+    background-image: url(../images/hero.jpg);
+    background-size: cover;
+    color: #F2F2F2;
+}
+#hero > img{
+    display: none;
+}
+#hero > h1{
+    width: 20%;
+}
+#hero > p{
+    width: 20%;
+
+    text-align: start;
+    margin-left: 0;
+}
+
+.introduction{
+    width: 50%;
+}
+
+#activities{
+    height: 850px;
+
+    justify-content: center;
+    gap: 3%;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+#activities > h2{
+    width: 100%;
+    
+    text-align: center;
+}
+
+.card_container{
+    width: 25%;
+    height: 70%;
+
+    margin-bottom: 50px;
+}
+
+#call_to_action{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#call_to_action > h2{
+    width: 100%;
+
+    padding-left: 10%;
+}
+#call_to_action > p{
+    width: 50%;
+
+    padding-left: 10%;
+    margin-left: 0px;
+    text-align: start;
+}
+#call_to_action > button{
+    margin-right: 10%;
+}
+
+
+
+/* Footer */
+footer{
+    margin-top: 20px;
+    padding-top: 20px;
+    grid-template-areas: 'logo contact link ';
+}
+
+.footer_logo_container{
+    align-items: normal;
+    flex-direction: row;
+}
+.footer_logo_container > a > img{
+    width: 100px;
+    height: 100px;
+}
+.footer_logo_container > div{
+    align-items: start;
+}
+
+}
